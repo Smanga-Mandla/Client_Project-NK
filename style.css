@@ -11,6 +11,7 @@ body { line-height: 1.6; color: var(--text-color); scroll-behavior: smooth; }
 
 .container { padding: 4rem 10%; }
 
+ 
 /* Navigation */
 header {
     background: var(--primary-color);
@@ -44,7 +45,85 @@ nav { display: flex; justify-content: space-between; align-items: center; }
     text-align: center; 
     color: white;
 }
+.hero-content h1 {
+    font-size: 4.5rem; /* Larger, bolder text */
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.8);
+}
 
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- ATTACKING BUTTONS --- */
+.hero-btns {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cta-btn {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px; /* Modern rounded look */
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+
+.cta-btn.pulse {
+    background: var(--accent-color);
+    color: #000;
+    box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7);
+    animation: pulse-animation 2s infinite;
+}
+
+.cta-btn.outline {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.cta-btn:hover {
+    transform: scale(1.05);
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.7); }
+    70% { box-shadow: 0 0 0 20px rgba(255, 204, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
+}
+
+.reveal-text {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-text {
+    animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 .cta-btn { background: var(--primary-color); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
 
 /* Cards & Lists */
@@ -67,4 +146,152 @@ footer { background: #222; color: white; text-align: center; padding: 20px; }
 #topBtn {
     position: fixed; bottom: 20px; right: 20px; display: none;
     background: var(--accent-color); border: none; padding: 10px; border-radius: 50%; cursor: pointer;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    
+    /* Animation calls */
+    animation: slideInLeft 1.2s ease-out forwards, shine 3s linear infinite;
+
+    /* Background for the gradient effect */
+    background: linear-gradient(to right, #ffffff, var(--accent-color), #ffffff);
+    background-size: 200% auto;
+
+    /* THE FIX: Include both the prefixed and the standard version */
+    -webkit-background-clip: text;
+    background-clip: text; 
+    
+    /* This makes the text color transparent so the background shows through */
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
+}
+/* Slide in from the left animation */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Beautiful moving shine effect animation */
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Adding a hover "heartbeat" effect */
+.logo:hover {
+    animation: heartbeat 1.5s ease-in-out infinite both;
+}
+
+@keyframes heartbeat {
+    from { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
+
+/* Why Choose Us Section */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.feature-card {
+    background: #fff;
+    padding: 25px 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-bottom: 3px solid var(--accent-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.4;
+}
+/* Services Section Styling */
+.bg-light { background-color: #f4f7f9; padding: 80px 0; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.service-box {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #e1e8ed;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 35px rgba(0, 51, 102, 0.1);
+    border-color: var(--accent-color);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--primary-color);
+    color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    transition: 0.3s;
+}
+
+.service-box:hover .service-icon {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: rotateY(360deg);
+}
+
+.service-box h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+.service-box p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
 }
