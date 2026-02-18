@@ -22,6 +22,12 @@ header {
     z-index: 1000;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+.nav-links li {
+    margin-left: 25px; /* Increased spacing for better readability */
+}
 nav { display: flex; justify-content: space-between; align-items: center; }
 
 .nav-links { list-style: none; display: flex; }
@@ -294,4 +300,368 @@ footer { background: #222; color: white; text-align: center; padding: 20px; }
     font-size: 0.95rem;
     color: #666;
     line-height: 1.6;
+}
+/* Contact Grid Layout */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Info is smaller, Form is wider */
+    gap: 50px;
+    align-items: start;
+}
+
+/* Left Side: Info Cards */
+.info-card {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.info-card:hover {
+    transform: translateX(10px);
+    background: var(--primary-color);
+}
+
+.info-card i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    background: var(--accent-color);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-right: 20px;
+    transition: 0.3s;
+}
+
+.info-card:hover i {
+    background: #fff;
+    color: var(--primary-color);
+}
+
+.info-card h4 {
+    font-size: 0.9rem;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.info-card p, .info-card a {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.info-card:hover p, .info-card:hover h4, .info-card:hover a {
+    color: #fff;
+}
+
+/* Right Side: Professional Form */
+.contact-form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0,51,102,0.1);
+}
+
+.submit-btn {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .input-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Aims & Objectives Styling --- */
+.objectives-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.obj-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.obj-header {
+    padding: 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.short-term { background: var(--primary-color); }
+.long-term { background: #004a94; } /* Slightly lighter blue for distinction */
+
+.obj-card ul {
+    padding: 25px;
+    list-style: none;
+}
+
+.obj-card ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 25px;
+}
+
+.obj-card ul li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* --- Norms & Beliefs Styling --- */
+.norms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.norm-item {
+    padding: 20px;
+    transition: 0.3s;
+}
+
+.norm-item i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.norm-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.norm-item p {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.norm-item:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .objectives-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mission & Vision Styling */
+.mission-vision-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0; /* Connected cards look */
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.mv-card {
+    padding: 30px;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+}
+
+.vision { background: var(--primary-color); border-right: 1px solid rgba(255,255,255,0.1); }
+.mission { background: #002244; } /* Slightly darker blue */
+
+.mv-icon {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.mv-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.mv-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+}
+
+/* Values Bar Styling */
+.values-bar {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin-bottom: 60px;
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.value-item i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+/* Responsive Mobile Fix */
+@media (max-width: 768px) {
+    .mission-vision-container { grid-template-columns: 1fr; }
+    .values-bar { flex-direction: column; gap: 20px; align-items: flex-start; }
+}
+
+#about {
+    display: flex;
+    justify-content: center; /* Centers the content block horizontally */
+    padding: 60px 20px;
+}
+
+.about-content {
+    max-width: 800px; /* Keeps the text from stretching too wide */
+    text-align: justify; /* Justifies the paragraph text */
+}
+
+.about-content h2 {
+    text-align: center; /* Centers only the heading */
+    margin-bottom: 30px;
+}
+
+.founder-signature {
+    text-align: center; /* Centers the signature at the bottom */
+    margin-top: 30px;
+}
+
+/* Fleet Section Styling */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.fleet-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.fleet-card:hover {
+    transform: translateY(-10px);
+}
+
+.fleet-img {
+    position: relative;
+    height: 200px;
+}
+
+.fleet-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes all car images fit the box perfectly */
+}
+
+.fleet-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--accent-color);
+    color: #000;
+    padding: 5px 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+.fleet-info {
+    padding: 20px;
+}
+
+.fleet-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.fleet-info p {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.fleet-info i {
+    color: var(--primary-color);
+    width: 20px;
 }
